@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property>
+		<name>importsource.mr.file.path</name>
+		<value>Y:\\中文分词词库整理\\sample\\chengji.txt</value>
+	</property>
+	<property>
+		<name>importsource.mr.file.seperator</name>
+		<value>,</value>
+	</property>
+	<property>
+		<name>dfs.name.dir</name>
+		<value>/hadoop/name</value>
+	</property>
+
+</configuration>
