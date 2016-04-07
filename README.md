@@ -321,3 +321,20 @@ working:1
 
 ```
 
+```java
+
+		Application avg = new Application();
+		Mapper mapper = new AvgMapper();
+		avg.setMapper(mapper);
+		Reducer reducer = new AvgReducer();
+		avg.setReducer(reducer);
+		ApplicationManager.start(avg);
+
+```
+
+```
+lisi:1355
+wangwu:233
+zhangsan:89
+```
+
