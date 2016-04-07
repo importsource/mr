@@ -11,9 +11,8 @@ public class ApplicationManager {
 		        
 				String str = readFile(app);
 				
-				String[] strArr = getFormatList(app, str);
 
-				map(app, strArr);
+				app.getMapper().map(str);
 				
 				reduce(app);
 
@@ -43,18 +42,6 @@ public class ApplicationManager {
 			}
 			app.getReducer().reduce(key, valuesList);
 		}
-	}
-
-	private static void map(Application app, String[] strArr) {
-		for (int i = 0; i < strArr.length; i++) {
-			//System.out.println(strArr[i]);
-			app.getMapper().map(strArr[i], 1);
-		}
-	}
-
-	private static String[] getFormatList(Application app, String str) {
-		String[] strArr = app.splitLine(str);
-		return strArr;
 	}
 
 	private static String readFile(Application app) {

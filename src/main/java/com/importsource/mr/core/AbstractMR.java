@@ -17,6 +17,7 @@ public abstract class AbstractMR  {
 		String wenzhang = FileMgr.readTxtFile("Y:\\中文分词词库整理\\sample\\wenzhang.txt");
 		return wenzhang;
 	}
+	
 
 	public static  Map<String, Object> map=new HashMap<String, Object>();
 	

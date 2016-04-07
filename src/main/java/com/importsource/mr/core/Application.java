@@ -7,8 +7,6 @@ public class Application extends AbstractMR {
 
 	public void setMapper(Mapper mapper) {
 		this.mapper=mapper;
-		
-		
 	}
 	public Mapper getMapper(){
 		return this.mapper;
@@ -16,8 +14,6 @@ public class Application extends AbstractMR {
 
 	public void setReducer(Reducer reducer) {
 		this.reducer=reducer;
-		
-		
 	}
 	
 	public Reducer getReducer(){
