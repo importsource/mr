@@ -1,6 +1,8 @@
-package com.importsource.mr.core;
+package com.importsource.mr.core.sample.average;
 
 import java.util.List;
+
+import com.importsource.mr.core.Reducer;
 
 public class AvgReducer implements Reducer {
 
@@ -9,7 +11,7 @@ public class AvgReducer implements Reducer {
 		 for(int i=0;i<values.size();i++){
 			sum+=Integer.parseInt(values.get(i).toString());
 		 }
-		 System.out.println(key+":"+sum);
+		 System.out.println(key+":"+sum/values.size());
 
 	}
 

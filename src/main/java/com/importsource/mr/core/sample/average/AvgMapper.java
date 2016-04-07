@@ -1,4 +1,7 @@
-package com.importsource.mr.core;
+package com.importsource.mr.core.sample.average;
+
+import com.importsource.mr.core.AbstractMR;
+import com.importsource.mr.core.Mapper;
 
 public class AvgMapper extends AbstractMR implements Mapper {
 

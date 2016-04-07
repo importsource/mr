@@ -1,4 +1,9 @@
-package com.importsource.mr.core;
+package com.importsource.mr.core.sample.average;
+
+import com.importsource.mr.core.Application;
+import com.importsource.mr.core.ApplicationManager;
+import com.importsource.mr.core.Mapper;
+import com.importsource.mr.core.Reducer;
 
 /**
  * 写一个框架。先从api写起。

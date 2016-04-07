@@ -1,4 +1,9 @@
-package com.importsource.mr.core;
+package com.importsource.mr.core.sample.wordcount;
+
+import com.importsource.mr.core.Application;
+import com.importsource.mr.core.ApplicationManager;
+import com.importsource.mr.core.Mapper;
+import com.importsource.mr.core.Reducer;
 
 /**
  *1、先把一个文件内容读取到缓存中。
