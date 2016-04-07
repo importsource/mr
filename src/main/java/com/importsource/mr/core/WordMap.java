@@ -2,8 +2,8 @@ package com.importsource.mr.core;
 
 public class WordMap extends AbstractMR implements Mapper  {
 
-	public void map(String key, int i) {
-		put(key, i);
+	public void map(String key, int obj) {
+		put(key, obj);
 	}
 	
 	private  Object put(String key,Object value){
