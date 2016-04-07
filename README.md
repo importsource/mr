@@ -321,6 +321,34 @@ working:1
 
 ```
 
+###下面是个计算平均分的例子
+
+输入数据：
+```log
+zhangsan 20,
+lisi 80,
+wangwu 100,
+zhangsan 84,
+lisi 200,
+wangwu 100,
+zhangsan 20,
+lisi 400,
+wangwu 45,
+zhangsan 20,
+lisi 400,
+wangwu 45,
+zhangsan 22,
+lisi 400,
+wangwu 435,
+zhangsan 230,
+lisi 4003,
+wangwu 453,
+zhangsan 230,
+lisi 4003,
+wangwu 453
+```
+
+java启动实现
 ```java
 
 		Application avg = new Application();
@@ -332,6 +360,7 @@ working:1
 
 ```
 
+输出结果：
 ```
 lisi:1355
 wangwu:233
