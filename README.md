@@ -17,7 +17,7 @@ Aside from the RDD-oriented functional style of programming, Spark provides two 
 A typical example of RDD-centric functional programming is the following Scala program that computes the frequencies of all words occurring in a set of text files and prints the most common ones. Each map, flatMap (a variant of map) and reduceByKey takes an anonymous function that performs a simple operation on a single data item (or a pair of items), and applies its argument to transform an RDD into a new RDD.
 ```
 
-###主方法：
+主方法：
 ```java
 
 Application wordCount = new Application();
@@ -29,7 +29,7 @@ ApplicationManager.start(wordCount);
 
 ```
 
-###示例
+输出结果：
 ```
 "driver":1
 "lineage":1
