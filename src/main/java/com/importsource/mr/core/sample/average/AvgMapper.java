@@ -7,9 +7,7 @@ import com.importsource.mr.core.Mapper;
 public class AvgMapper extends AbstractMR implements Mapper {
 
 	public void map(String key1,String text,Context context) {
-		String[] strArr =splitLine(text);
-		for(int i=0;i<strArr.length;i++){
-			String[] pers=strArr[i].split(" ");
+			String[] pers=text.split(" ");
 //			/System.out.println(pers[0]);
 			String key=pers[0];
 			String value=pers[1];
@@ -23,6 +21,5 @@ public class AvgMapper extends AbstractMR implements Mapper {
 		}
 		
 
-	}
 
 }
