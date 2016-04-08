@@ -12,8 +12,8 @@ public class ApplicationManager {
 	public static void start(Application app) {
 
 		String str = readFile(app);
-		
-		app.getMapper().map(str);
+		Context context=new Context();
+		app.getMapper().map(null,str,context);
 		
 		sort();
 
@@ -47,7 +47,8 @@ public class ApplicationManager {
 			for (int i = 0; i < valuesArr.length; i++) {
 				valuesList.add(valuesArr[i]);
 			}
-			app.getReducer().reduce(key, valuesList);
+			Context context=new Context();
+			app.getReducer().reduce(key, valuesList,context);
 		}
 	}
 

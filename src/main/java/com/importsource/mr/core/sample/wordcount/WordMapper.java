@@ -1,11 +1,12 @@
 package com.importsource.mr.core.sample.wordcount;
 
 import com.importsource.mr.core.AbstractMR;
+import com.importsource.mr.core.Context;
 import com.importsource.mr.core.Mapper;
 
 public class WordMapper extends AbstractMR implements Mapper  {
 
-	public void map(String text) {
+	public void map(String key1,String text,Context context) {
 		put(text);
 	}
 	

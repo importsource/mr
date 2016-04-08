@@ -1,11 +1,12 @@
 package com.importsource.mr.core.sample.weight;
 
 import com.importsource.mr.core.AbstractMR;
+import com.importsource.mr.core.Context;
 import com.importsource.mr.core.Mapper;
 
 public class CommentMapper extends AbstractMR implements Mapper {
 
-	public void map(String text) {
+	public void map(String key1,String text,Context context) {
 		String[] strArr =splitLine(text);
 		for(int i=0;i<strArr.length;i++){
 			String[] pers=strArr[i].split("	");
