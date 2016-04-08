@@ -12,8 +12,7 @@ public class CommentReducer implements Reducer {
 		 for(int i=0;i<values.size();i++){
 			sum+=Integer.parseInt(values.get(i).toString());
 		 }
-		 System.out.println(key+":"+sum);
-
+		 context.write(key,sum);
 	}
 
 }

@@ -1,5 +1,10 @@
 package com.importsource.mr.core;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -7,13 +12,32 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class ApplicationManager {
+import com.importsource.conf.Properties;
+import com.importsource.conf.PropertiesTools;
+import com.importsource.mr.core.io.LineBufferReader;
 
+/**
+ * 这个主要负责应用生命周期的管理
+ * @author Hezf
+ *
+ */
+public class ApplicationManager {
+    /**
+     * 启动
+     * @param app 要启动的app
+     */
 	public static void start(Application app) {
 
-		String str = readFile(app);
+		//String str = readFile(app);
 		Context context=new Context();
-		app.getMapper().map(null,str,context);
+		
+		
+		try {
+			map(app, context);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		sort();
 
@@ -26,6 +50,20 @@ public class ApplicationManager {
 		 * map.get(key).toString(); //System.out.println(key + ":" + value); }
 		 */
 
+	}
+
+	private static void map(Application app,Context context) throws IOException {
+		Properties p=Configuration.newPropertiesInstance();
+		String path = PropertiesTools.get(p, "importsource.mr.file.path", null);
+		BufferedReader br = new BufferedReader(new InputStreamReader(
+				new FileInputStream(path),Charset.forName("gbk")));
+		LineBufferReader myReader=new LineBufferReader(br);
+		for (String line = myReader.readLine(); line != null; line = myReader.readLine()) {
+			app.getMapper().map(String.valueOf(myReader.getLineNumber()),line,context);
+			//System.out.println(line);
+		}
+		br.close();
+		
 	}
 
 	private static void sort() {
@@ -53,9 +91,9 @@ public class ApplicationManager {
 	}
 
 
-	private static String readFile(Application app) {
+	/*private static String readFile(Application app) {
 		String str = app.readLine();
 		return str;
-	}
+	}*/
 
 }
