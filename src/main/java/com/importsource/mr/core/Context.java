@@ -1,6 +1,13 @@
 package com.importsource.mr.core;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.Map;
+
+import com.importsource.mr.core.io.LineBufferReader;
 
 /**
  * 负责处理处理过程中的各种操作能力的链接提供
@@ -32,5 +39,17 @@ public class Context {
 	public void put(String key, String value) {
 		AbstractMR.map.put(key, value);
 		
+	}
+	
+	public void textFile(String path){
+		//String path = PropertiesTools.get(p, "importsource.mr.file.path", null);
+		BufferedReader br;
+		try {
+			br = new BufferedReader(new InputStreamReader(
+					new FileInputStream(path),Charset.forName("gbk")));
+		} catch (FileNotFoundException e) {
+			throw new IllegalArgumentException(e);
+		}
+		LineBufferReader myReader=new LineBufferReader(br);
 	}
 }

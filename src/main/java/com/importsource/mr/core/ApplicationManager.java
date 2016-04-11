@@ -18,27 +18,29 @@ import com.importsource.mr.core.io.LineBufferReader;
 
 /**
  * 这个主要负责应用生命周期的管理
+ * 
  * @author Hezf
  *
  */
 public class ApplicationManager {
-    /**
-     * 启动
-     * @param app 要启动的app
-     */
+	/**
+	 * 启动
+	 * 
+	 * @param app
+	 *            要启动的app
+	 */
 	public static void start(Application app) {
 
-		//String str = readFile(app);
-		Context context=new Context();
-		
-		
+		// String str = readFile(app);
+		Context context = new Context();
+
 		try {
 			map(app, context);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		sort();
 
 		reduce(app);
@@ -52,25 +54,37 @@ public class ApplicationManager {
 
 	}
 
-	private static void map(Application app,Context context) throws IOException {
+	private static void map(Application app, Context context) throws IOException {
+
 		Properties p=Configuration.newPropertiesInstance();
-		String path = PropertiesTools.get(p, "importsource.mr.file.path", null);
-		BufferedReader br = new BufferedReader(new InputStreamReader(
-				new FileInputStream(path),Charset.forName("gbk")));
-		LineBufferReader myReader=new LineBufferReader(br);
+		String path = PropertiesTools.get(p, "importsource.mr.file.path",
+		null);
+		BufferedReader br = new BufferedReader(
+				new InputStreamReader(new FileInputStream(path), Charset.forName("gbk")));
+		LineBufferReader myReader = new LineBufferReader(br);
 		for (String line = myReader.readLine(); line != null; line = myReader.readLine()) {
-			app.getMapper().map(String.valueOf(myReader.getLineNumber()),line,context);
-			//System.out.println(line);
+			
+				
+
+				app.getMapper().map(String.valueOf(myReader.getLineNumber()), line, context);
+				// System.out.println(line);
+			
+			
 		}
 		br.close();
-		
+
+	}
+
+	private static void default1(String line,String name,String value) {
+		//把这一行sh
+
 	}
 
 	private static void sort() {
 		Map<String, Object> result = AbstractMR.map;
-		Map<String, Object> treeMap=new TreeMap<String, Object>(result);
-		AbstractMR.map=treeMap;
-		
+		Map<String, Object> treeMap = new TreeMap<String, Object>(result);
+		AbstractMR.map = treeMap;
+
 	}
 
 	private static void reduce(Application app) {
@@ -85,15 +99,14 @@ public class ApplicationManager {
 			for (int i = 0; i < valuesArr.length; i++) {
 				valuesList.add(valuesArr[i]);
 			}
-			Context context=new Context();
-			app.getReducer().reduce(key, valuesList,context);
+			Context context = new Context();
+			app.getReducer().reduce(key, valuesList, context);
 		}
 	}
 
-
-	/*private static String readFile(Application app) {
-		String str = app.readLine();
-		return str;
-	}*/
+	/*
+	 * private static String readFile(Application app) { String str =
+	 * app.readLine(); return str; }
+	 */
 
 }

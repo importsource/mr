@@ -13,6 +13,7 @@ public class WordMapper extends AbstractMR implements Mapper  {
 	private  void put(String text){
 		String[] strArr =splitLine(text);
 		for(int i=0;i<strArr.length;i++){
+			
 			if(map.containsKey(strArr[i])){
 				String value1=map.get(strArr[i]).toString();
 				map.remove(strArr[i]);

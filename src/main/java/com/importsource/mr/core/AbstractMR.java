@@ -1,6 +1,8 @@
 package com.importsource.mr.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.importsource.conf.Properties;
@@ -21,8 +23,10 @@ public abstract class AbstractMR  {
 		String wenzhang = FileMgr.readTxtFile(path);
 		return wenzhang;
 	}
-	
-
+	/**
+	 * 存放过往的转换操作之后的结果集
+	 */
+    public static List<Map<String, Object>> mapList=new ArrayList<Map<String,Object>>();
 	public static  Map<String, Object> map=new HashMap<String, Object>();
 	
 	//protected abstract   void map(String key, int i) ;
