@@ -24,19 +24,11 @@ import com.importsource.mr.core.Reducer;
  * 
  * 这个要用sql思维来写。
  * 
- * 
  * groupby
- * 
  * where 
- * 
- * 
  * orderby
  * 
  * count
- * 
- * 
- * 
- * 
  * @author Hezf
  *
  */
